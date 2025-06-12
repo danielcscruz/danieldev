@@ -1,0 +1,96 @@
+@import './base.css';
+
+#app {
+  max-width: 100vw;
+  margin: 0 auto;
+}
+
+@media (hover: hover) {
+  a:hover {
+    /* text-shadow: 0 0 20px #ffffff; */
+    text-shadow:
+      0 0 7px rgb(var(--v-theme-primary)),
+      0 0 10px rgb(var(--v-theme-primary)),
+      0 0 21px rgb(var(--v-theme-primary)),
+      0 0 42px rgb(var(--v-theme-primary)),
+      0 0 82px rgb(var(--v-theme-primary));
+  }
+}
+
+@font-face {
+  font-family: 'MALKIE';
+  src: url('/src/assets/fonts/malkie.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'CONTHRAX';
+  src: url('/src/assets/fonts/conthrax.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SPACERANGER';
+  src: url('/src/assets/fonts/spaceranger.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TOPSHOW';
+  src: url('/src/assets/fonts/topshow.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'REDWORLD';
+  src: url('/src/assets/fonts/redworld.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GOBOLD BOLD';
+  src: url('/src/assets/fonts/gobold_bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GOBOLD HOLLOW BOLD';
+  src: url('/src/assets/fonts/gobold_hollow_bold.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GOBOLD LIGHT';
+  src: url('/src/assets/fonts/gobold_light.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GOBOLD LOWPLUS';
+  src: url('/src/assets/fonts/gobold_lowplus.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GOBOLD';
+  src: url('/src/assets/fonts/gobold_regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
