@@ -8,12 +8,76 @@ const heroRef = ref<HTMLElement>()
 
 let observer: IntersectionObserver | null = null
 
+// Props com tipos definidos
+interface Props {
+  texts?: string[]
+  typingSpeed?: number
+  deletingSpeed?: number
+  pauseTime?: number
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  texts: () => [
+    'Django',
+    'Python',
+    'Vue.js',
+    'Flask',
+    'REST API'
+  ],
+  typingSpeed: 100,
+  deletingSpeed: 50,
+  pauseTime: 2000
+})
+
+// Estados reativos com tipos explícitos
+const displayText = ref<string>('')
+const currentIndex = ref<number>(0)
+const charIndex = ref<number>(0)
+const isDeleting = ref<boolean>(false)
+
+// Timeouts com tipos corretos
+let typewriterTimeout: ReturnType<typeof setTimeout> | null = null
+
+// Função principal do efeito typewriter
+const typeWriter = (): void => {
+  const currentText: string = props.texts[currentIndex.value]
+
+  if (isDeleting.value) {
+    // Apagando caracteres
+    displayText.value = currentText.substring(0, charIndex.value - 1)
+    charIndex.value--
+
+    if (charIndex.value === 0) {
+      isDeleting.value = false
+      currentIndex.value = (currentIndex.value + 1) % props.texts.length
+      typewriterTimeout = setTimeout(typeWriter, 500)
+      return
+    }
+
+    typewriterTimeout = setTimeout(typeWriter, props.deletingSpeed)
+  } else {
+    // Digitando caracteres
+    displayText.value = currentText.substring(0, charIndex.value + 1)
+    charIndex.value++
+
+    if (charIndex.value === currentText.length) {
+      isDeleting.value = true
+      typewriterTimeout = setTimeout(typeWriter, props.pauseTime)
+      return
+    }
+
+    typewriterTimeout = setTimeout(typeWriter, props.typingSpeed)
+  }
+}
+
 onMounted(() => {
+  typeWriter()
+
   if (heroRef.value) {
     observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const isVisible = entry.intersectionRatio > 0.2
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry: IntersectionObserverEntry) => {
+          const isVisible: boolean = entry.intersectionRatio > 0.6
           heroStore.setHeroVisibility(isVisible)
         })
       },
@@ -29,6 +93,9 @@ onMounted(() => {
 })
 
 onUnmounted(() => {
+  if (typewriterTimeout) {
+    clearTimeout(typewriterTimeout)
+  }
   if (observer) {
     observer.disconnect()
   }
@@ -36,15 +103,19 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div ref="heroRef" class="hero">
+  <div ref="heroRef" class="wrapper">
     <div class="text-center">
       <v-chip class="ma-2 mt-8 mb-8 v-chip-glow-intense" color="success" variant="outlined">
         Disponível para Projetos
       </v-chip>
       <v-img :src="logoImg" height="125px" class="mb-5"></v-img>
-      <h2><span>Daniel Cruz</span></h2>
+      <h2><span>Daniel cruZ</span></h2>
       <h3>Desenvolvedor Fullstack</h3>
-      <p>Construindo soluções web e automações robustas com Python, <br>Django e tecnologias modernas</p>
+      <div class="typewriter-container">
+        <p>Soluções web e automações com
+          <br><span class="typewriter-text">{{ displayText || '&nbsp;' }}</span>
+        </p>
+      </div>
       <div class="buttons pt-5">
         <v-btn size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
           class="px-3 mt-4 mr-6">Começar um
@@ -52,14 +123,31 @@ onUnmounted(() => {
         <v-btn size="small" to="/projects" color="primary" append-icon="mdi-eye" variant="outlined"
           class="px-3 mt-4">Ver meus
           Projetos</v-btn>
-
       </div>
     </div>
-
   </div>
 </template>
 
 <style scoped>
+.typewriter-container {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typewriter-text {
+  color: #ffd700;
+  font-weight: 600;
+  font-size: 30px;
+  min-width: 300px;
+  min-height: 36px;
+  display: inline-block;
+  text-align: center;
+  line-height: 36px;
+  vertical-align: top;
+}
+
 h2 {
   font-family: "GOBOLD";
   font-size: 80px;
@@ -78,36 +166,20 @@ p {
   font-size: 18px;
   line-height: 36px;
   color: rgba(225, 225, 225, 0.813);
+  margin: 0;
 }
 
 span {
   color: #4caf50;
+  line-height: 60px;
 }
 
-
-.hero {
+.wrapper {
   background-color: #0E172B;
   width: 100%;
-  height: 600px;
+  height: 550px;
 }
 
-/* Classe para aplicar glow pulsante ao v-chip */
-.v-chip-glow {
-  animation: glow-pulse 2s ease-in-out infinite alternate;
-}
-
-/* Keyframes para o efeito de glow pulsante */
-@keyframes glow-pulse {
-  from {
-    box-shadow: 0 0 10px #4caf50;
-  }
-
-  to {
-    box-shadow: 0 0 30px #4caf50, 0 0 40px #4caf50, 0 0 50px #4caf50;
-  }
-}
-
-/* Versão mais intensa do glow (opcional) */
 .v-chip-glow-intense {
   animation: glow-pulse-intense 1s ease-in-out infinite alternate;
 }
@@ -122,8 +194,6 @@ span {
   }
 }
 
-/* Para garantir que o v-chip tenha posição relativa */
-.v-chip-glow,
 .v-chip-glow-intense {
   position: relative;
   z-index: 1;
