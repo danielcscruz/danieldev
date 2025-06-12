@@ -26,7 +26,7 @@ function getImage(imagePath: string) {
     <div class="container">
 
       <v-row class="justify-center mx-12">
-        <v-col v-for="project in projects" :key="project.id" cols="12" md="6" sm="12" class="d-flex">
+        <v-col v-for="project in projects" :key="project.id" cols="12" md="4" sm="12" class="d-flex">
           <v-card v-if="project.title != ''" class="feature-card d-flex flex-column" hover height="100%" width="100%">
             <v-img v-if="project.image != ''" :src="getImage(project.image)" width="100%" height="300px" cover />
             <div v-else-if="project.private == true" width="100%" style="height: 300px"

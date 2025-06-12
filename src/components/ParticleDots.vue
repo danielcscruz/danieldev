@@ -12,56 +12,37 @@ const particlesLoaded = async (container: unknown) => {
           value: 'transparent'
         }
       },
-      fpsLimit: 60, // Reduzido para movimento mais suave
-      interactivity: {
-        events: {
-          onHover: {
-            enable: true,
-            mode: 'bubble'
-          },
-        },
-        modes: {
-          bubble: {
-            distance: 100,
-            duration: 2,
-            opacity: 0.8,
-            size: 10
-          },
-          repulse: {
-            distance: 100,
-            duration: 0.4
-          }
-        }
-      },
+      fpsLimit: 60,
       particles: {
         color: {
-          value: ['#4caf50'] // Tons suaves de branco/cinza
+          value: ['#fff']
         },
         move: {
-          direction: 'top', // Movimento ascendente
+          direction: 'top',
           enable: true,
           outModes: {
-            default: 'out', // Partículas saem pela parte superior
+            default: 'out',
+            top: 'out', // Permite que as partículas saiam pelo topo
             bottom: 'none',
-            left: 'none',
-            right: 'none',
-            top: 'none'
+            left: 'bounce', // Reduz movimento no eixo X
+            right: 'bounce' // Reduz movimento no eixo X
           },
-          random: true, // Adiciona variação suave no movimento
+          random: false, // Reduz variação aleatória no movimento
           speed: {
             min: 0.5,
-            max: 2 // Velocidade bem suave
+            max: 2
           },
-          straight: false, // Permite movimento orgânico
+          straight: true, // Movimento mais linear
           warp: false,
-          // Adiciona oscilação suave
-          path: {
-            enable: true,
-            options: {
-              sides: 6,
-              turnSteps: 30,
-              angle: 30
-            }
+          // Remove oscilação para movimento mais reto
+          angle: {
+            offset: 0,
+            value: 90 // Movimento vertical
+          },
+          // Reduz deriva lateral
+          drift: 0,
+          gravity: {
+            enable: false
           }
         },
         number: {
@@ -70,7 +51,7 @@ const particlesLoaded = async (container: unknown) => {
             width: 1920,
             height: 1080
           },
-          value: 50 // Quantidade reduzida para movimento mais visível
+          value: 500
         },
         opacity: {
           value: {
@@ -80,7 +61,7 @@ const particlesLoaded = async (container: unknown) => {
           animation: {
             enable: true,
             speed: 1,
-            opacity_min: 0.1,
+            minimumValue: 0.1,
             sync: false
           }
         },
@@ -88,18 +69,12 @@ const particlesLoaded = async (container: unknown) => {
           type: 'circle'
         },
         size: {
-          value: {
-            min: 1,
-            max: 4
-          },
+          value: 1, // Tamanho fixo
+          // Remove animação de tamanho
           animation: {
-            enable: true,
-            speed: 2,
-            size_min: 0.5,
-            sync: false
+            enable: false
           }
         },
-        // Adiciona rotação suave
         rotate: {
           value: {
             min: 0,
@@ -114,28 +89,34 @@ const particlesLoaded = async (container: unknown) => {
         }
       },
       detectRetina: true,
-      // Configuração para regenerar partículas na parte inferior
+      // Configuração corrigida do emitter
       emitters: {
-        direction: 'top',
+        autoPlay: true,
+        fill: true,
         life: {
-          count: 0,
-          duration: 0.1,
-          delay: 0.1
+          wait: false
         },
         rate: {
           delay: 0.1,
-          quantity: 1
+          quantity: 20
         },
-        shape: 'square',
+        shape: {
+          type: 'square'
+        },
         startCount: 0,
         size: {
           mode: 'percent',
-          height: 0,
+          height: 1,
           width: 100
         },
         position: {
           x: 50,
           y: 100
+        },
+        particles: {
+          move: {
+            direction: 'top'
+          }
         }
       }
     }" />
