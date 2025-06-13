@@ -1,15 +1,11 @@
+<script setup lang="ts">
+import PageHeroSection from '@/components/PageHeroSection.vue';
+import FormSection from '@/components/FormSection.vue';
+</script>
+
 <template>
-  <div class="contact">
-    <h1>This is a contact page</h1>
-  </div>
+  <PageHeroSection title="Contato" chip="tech" color="primary" :btn="false" />
+  <FormSection />
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .contact {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<style scoped></style>

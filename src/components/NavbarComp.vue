@@ -56,6 +56,5 @@ const menuItems = [
   { label: 'Home', to: '/' },
   { label: 'Serviços', to: '/services' },
   { label: 'Projetos', to: '/projects' },
-  { label: 'Sobre', to: '/about' },
 ];
 </script>

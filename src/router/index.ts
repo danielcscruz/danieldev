@@ -17,6 +17,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior() {
+    // Se você quiser que sempre vá para o topo:
+    return { top: 0 }
+
+    // Alternativamente, para restaurar a posição anterior (ex: botão voltar):
+    // return savedPosition || { top: 0 }
+  },
 })
 
 // Reset do estado hero em cada navegação

@@ -1,16 +1,16 @@
 <script setup lang="ts">
-
+defineProps<{ title: string, chip: string, color: string, btn: boolean }>();
 </script>
 
 <template>
   <div ref="heroRef" class="wrapper">
     <div class="text-center">
-      <v-chip class="ma-2 mt-8 mb-8 v-chip-glow-intense " color="success" variant="outlined">
-        Soluções
+      <v-chip class="ma-2 mt-8 mb-8 v-chip-glow-intense" color="success" variant="outlined">
+        {{ chip }}
       </v-chip>
-      <h3>ServiçoS</h3>
+      <h3>{{ title }}</h3>
       <div class="buttons pt-5">
-        <v-btn size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
+        <v-btn v-if=btn size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
           class="px-3 mt-4 mr-6">Começar um
           Projeto</v-btn>
 

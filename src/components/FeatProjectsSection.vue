@@ -15,10 +15,9 @@ const categoryColors: Record<string, string> = {
 </script>
 
 <template>
-  <div class="features-section wrapper">
+  <div class="section">
     <div class="container">
-
-      <v-row class="mx-12 align-center justify-space-between">
+      <v-row class="mx-15  align-center justify-space-between">
         <div class="d-flex align-center ga-2">
           <v-icon icon="mdi-source-fork" color="primary" size="28" class="card-icon" />
           <h2 class="section-title ma-0">Projetos Destacados</h2>
@@ -29,11 +28,10 @@ const categoryColors: Record<string, string> = {
           </v-btn>
         </div>
       </v-row>
-
       <v-row class="justify-center mx-12">
         <v-col v-for="project in projects.filter(f => f.feat === true)" :key="project.id" cols="12" md="3" sm="12"
           class="d-flex">
-          <v-card class="feature-card d-flex flex-column" hover height="100%">
+          <v-card class="feature-card d-flex flex-column" hover height="100%" width="100%">
             <!-- Ícone do Card -->
             <v-card-title class="project-title">
               {{ project.title }}
@@ -74,20 +72,18 @@ const categoryColors: Record<string, string> = {
   border-radius: 4px !important;
 }
 
-.wrapper {
+.section {
+  padding-bottom: 2rem;
+  /* min-height: 50vh; */
   background: #0E172B;
   width: 100%;
-}
-
-.features-section {
-  padding: 4rem 0;
-  min-height: 50vh;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  padding-bottom: 4rem;
 }
 
 .section-title {

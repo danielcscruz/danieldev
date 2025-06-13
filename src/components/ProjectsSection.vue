@@ -22,7 +22,7 @@ function getImage(imagePath: string) {
 </script>
 
 <template>
-  <div class="features-section wrapper">
+  <div class="section">
     <div class="container">
 
       <v-row class="justify-center mx-12">
@@ -80,6 +80,19 @@ function getImage(imagePath: string) {
 </template>
 
 <style scoped>
+.section {
+  padding-bottom: 6rem;
+  min-height: 50vh;
+  background: linear-gradient(180deg, #0E172B 0%, #1d2c4b 100%);
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .bg {
   color: rgba(255, 255, 255, 0.398);
   background: rgba(255, 255, 255, 0.152);
@@ -98,22 +111,6 @@ function getImage(imagePath: string) {
 
 .tag-chip {
   border-radius: 4px !important;
-}
-
-.wrapper {
-  background: linear-gradient(180deg, #0E172B 0%, #1d2c4b 100%);
-  width: 100%;
-}
-
-.features-section {
-  padding: 4rem 0;
-  min-height: 50vh;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .section-title {

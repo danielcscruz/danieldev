@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import ProjectHeroSection from '@/components/ProjectHeroSection.vue';
 import ProjectsSection from '@/components/ProjectsSection.vue';
+import PageHeroSection from '@/components/PageHeroSection.vue';
 </script>
 
 <template>
-  <ProjectHeroSection />
+  <PageHeroSection title="ProjetoS" chip="Porrr" color="primary" :btn="true" />
   <ProjectsSection />
 
 </template>

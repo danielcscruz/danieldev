@@ -23,12 +23,8 @@ const getColorVariable = (colorName: string) => {
   <div class="section ">
     <div class="container">
 
-      <v-row class="justify-center">
-        <h2 class="section-title">Minhas Especialidades</h2>
-      </v-row>
-      <v-row class="justify-center mx-12">
-        <v-col v-for="feature in features.filter(f => f.feat === true)" :key="feature.id" cols="12" md="4" sm="12"
-          class="d-flex">
+      <v-row class="justify-center mx-12 mb-15">
+        <v-col v-for="feature in features" :key="feature.id" cols="12" md="6" sm="12" class="d-flex">
           <v-card class="feature-card d-flex flex-column" hover height="100%" width="100%" :style="{
             '--feature-color': getColorVariable(feature.color),
             '--feature-color-light': getColorVariable(feature.color) + '20',
@@ -54,11 +50,6 @@ const getColorVariable = (colorName: string) => {
             </v-card-text>
           </v-card>
         </v-col>
-      </v-row>
-      <v-row class="justify-center mt-8">
-        <v-btn size="small" to="/services" color="primary" append-icon="mdi-eye" variant="outlined">
-          Ver todos Serviços
-        </v-btn>
       </v-row>
 
     </div>
@@ -145,9 +136,8 @@ custom-list {
   /* Sombra dinâmica com a cor da feature */
   box-shadow: 0 8px 25px var(--feature-color-light) !important;
   border-color: var(--feature-color) !important;
-  /* transform: translateY(-4px); */
+  transform: translateY(-4px);
 }
-
 
 
 .card-icon-container {

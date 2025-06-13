@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { techFeat, type Tech } from '@/data/tech'
+import { techFeat, techBundle, type Tech } from '@/data/tech'
 
-const techs = ref<Tech[]>(techFeat)
+const techfeat = ref<Tech[]>(techFeat)
+const techbundle = ref<Tech[]>(techBundle)
 
 </script>
 
@@ -15,14 +16,30 @@ const techs = ref<Tech[]>(techFeat)
       </v-row>
 
       <v-row class="justify-center mx-12">
-        <v-col v-for="tech in techs" :key="tech.id" cols="12" md="3" sm="12" class="d-flex justify-center">
-          <v-card class="feature-card d-flex flex-column align-center" hover height="100%" width="200">
+        <v-col v-for="tech in techfeat" :key="tech.id" cols="12" md="3" sm="12" class="d-flex justify-center">
+          <v-card class="feature-card d-flex flex-column align-center" hover height="100%" width="100%">
             <!-- Ícone do Card -->
-            <v-icon :icon="tech.icon" :color="tech.color" size="30" class="center mt-4">
+            <!-- <v-icon :icon="tech.icon" :color="tech.color" size="30" class="center mt-4">
 
-            </v-icon>
+            </v-icon> -->
+            <img :src="`https://cdn.simpleicons.org/${tech.icon}/${tech.color.replace('#', '')}`" :alt="tech.title"
+              width="30" height="30" class="mt-4" />
             <v-card-title class="project-title mb-4">
               {{ tech.title }}
+            </v-card-title>
+            <!-- Conteúdo do Card -->
+          </v-card>
+        </v-col>
+      </v-row>
+
+      <v-row class="justify-center mx-12">
+        <v-col v-for="techb in techbundle" :key="techb.id" cols="12" md="2" sm="12" class="d-flex justify-center">
+          <v-card class="feature-card d-flex flex-column align-center" hover height="80%" width="100%">
+            <!-- Ícone do Card -->
+            <img :src="`https://cdn.simpleicons.org/${techb.icon}/${techb.color.replace('#', '')}`" :alt="techb.title"
+              width="30" height="30" class="mt-4" />
+            <v-card-title class="project-title mb-4">
+              {{ techb.title }}
             </v-card-title>
             <!-- Conteúdo do Card -->
           </v-card>

@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import ServiceHeroSection from '@/components/ServiceHeroSection.vue';
+import PageHeroSection from '@/components/PageHeroSection.vue';
+import ServicesSection from '@/components/ServicesSection.vue';
 </script>
 
 <template>
-  <ServiceHeroSection />
+  <PageHeroSection title="ServiçoS" chip="tech" color="primary" :btn="true" />
+  <ServicesSection />
 </template>
 
 <style scoped></style>
