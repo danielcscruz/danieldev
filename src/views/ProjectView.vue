@@ -4,7 +4,7 @@ import PageHeroSection from '@/components/PageHeroSection.vue';
 </script>
 
 <template>
-  <PageHeroSection title="ProjetoS" chip="portifolio" color="primary" :btn="true" />
+  <PageHeroSection title="ProjetoS" chip="portifolio" color="blue" :btn="true" />
   <ProjectsSection />
 
 </template>
