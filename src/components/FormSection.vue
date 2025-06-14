@@ -1,7 +1,7 @@
 <template>
   <div class="section ">
     <div class="container">
-      <v-row class="justify-center mx-12">
+      <v-row class="justify-center px-2 px-sm-4 px-md-8">
         <!-- Coluna do Formulário (2/3 da largura) -->
         <v-col cols="12" md="8">
           <v-card elevation="2" class="pa-6 card">

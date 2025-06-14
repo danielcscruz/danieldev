@@ -19,7 +19,7 @@ import SocialUI from './ui/SocialUI.vue';
         </v-col>
         <v-col cols="12" md="4">
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="4" class="mb-10">
           <h3 class="title">Vamos conversar</h3>
           <p>Tem um projeto em mente? Vamos conversar sobre como posso ajudar a desenvolver uma solução robusta,
             escalável e sob medida para você.</p>

@@ -3,21 +3,22 @@ defineProps<{ title: string, chip: string, color: string, btn: boolean }>();
 </script>
 
 <template>
-  <div ref="heroRef" class="wrapper">
-    <div class="text-center">
+  <div class="wrapper">
+    <div class="content">
       <v-chip class="ma-2 mt-8 mb-8 v-chip-glow-intense" color="success" variant="outlined">
         {{ chip }}
       </v-chip>
       <h3>{{ title }}</h3>
       <div class="buttons pt-5">
-        <v-btn v-if=btn size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
-          class="px-3 mt-4 mr-6">Começar um
-          Projeto</v-btn>
-
+        <v-btn v-if="btn" size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
+          class="px-3 mt-4">
+          Começar um Projeto
+        </v-btn>
       </div>
     </div>
   </div>
 </template>
+
 
 <style scoped>
 h3 {
@@ -30,5 +31,16 @@ h3 {
   background-color: #0E172B;
   width: 100%;
   height: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 </style>

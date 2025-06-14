@@ -26,7 +26,7 @@ const getColorVariable = (colorName: string) => {
       <v-row class="justify-center">
         <h2 class="section-title">Minhas Especialidades</h2>
       </v-row>
-      <v-row class="justify-center mx-12">
+      <v-row class="justify-center px-2 px-sm-4 px-md-8">
         <v-col v-for="feature in features.filter(f => f.feat === true)" :key="feature.id" cols="12" md="4" sm="12"
           class="d-flex">
           <v-card class="feature-card d-flex flex-column" hover height="100%" width="100%" :style="{

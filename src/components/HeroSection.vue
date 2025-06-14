@@ -118,7 +118,7 @@ onUnmounted(() => {
       </div>
       <div class="buttons pt-5">
         <v-btn size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
-          class="px-3 mt-4 mr-6">Começar um
+          class="px-3 mt-4">Começar um
           Projeto</v-btn>
         <v-btn size="small" to="/projects" color="primary" append-icon="mdi-eye" variant="outlined"
           class="px-3 mt-4">Ver meus
@@ -136,6 +136,13 @@ onUnmounted(() => {
   justify-content: center;
 }
 
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
 .typewriter-text {
   color: #ffd700;
   font-weight: 600;
@@ -150,14 +157,19 @@ onUnmounted(() => {
 
 h2 {
   font-family: "GOBOLD";
-  font-size: 80px;
-  line-height: 72px;
+  font-size: clamp(50px, 5vw, 80px);
+  /* dinâmico: mínimo 18px, máximo 26px */
+  line-height: 1.2;
   color: rgba(225, 225, 225, 0.813);
+  white-space: nowrap;
+  /* mantém em uma linha */
+  padding: 0 16px;
+  /* garante margem lateral mínima */
 }
 
 h3 {
   font-family: "GOBOLD HOLLOW BOLD";
-  font-size: 40px;
+  font-size: clamp(26px, 5vw, 40px);
   color: rgba(225, 225, 225, 0.813);
 }
 
@@ -177,7 +189,9 @@ span {
 .wrapper {
   background-color: #0E172B;
   width: 100%;
-  height: 550px;
+  min-height: 550px;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 }
 
 .v-chip-glow-intense {

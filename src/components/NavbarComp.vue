@@ -1,6 +1,6 @@
 <template>
   <v-app-bar app fixed color="bgdark" dark height="80" flat style="z-index: 1005;" class="border-nav">
-    <v-container class="d-flex justify-space-between align-center px-4 mx-10" fluid>
+    <v-container class="d-flex justify-space-between align-center px-4 mx-2 mx-md-10" fluid>
       <!-- Logo -->
       <LogoUI />
 
@@ -13,9 +13,16 @@
       </div>
 
       <!-- Botão de Contato -->
-      <v-btn to="/contact" color="primary" variant="tonal" prepend-icon="mdi-email-fast-outline" class="contact-btn">
-        Contato
-      </v-btn>
+      <div>
+        <v-btn v-if="smAndDown" to="/contact" icon color="primary" variant="tonal" rounded="lg" class="contact-btn">
+          <v-icon>mdi-email-fast-outline</v-icon>
+        </v-btn>
+
+        <v-btn v-else to="/contact" color="primary" variant="tonal" prepend-icon="mdi-email-fast-outline"
+          class="contact-btn">
+          Contato
+        </v-btn>
+      </div>
 
       <!-- Ícone Hamburguer -->
       <v-app-bar-nav-icon class="d-md-none" @click="handleClick" />
@@ -45,8 +52,11 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import LogoUI from './ui/LogoUI.vue';
+import { useDisplay } from 'vuetify';
 
 const drawer = ref(false);
+const { smAndDown } = useDisplay(); // detecta mobile/tablet
+
 
 function handleClick() {
   drawer.value = !drawer.value;

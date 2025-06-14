@@ -23,7 +23,7 @@ const getColorVariable = (colorName: string) => {
   <div class="section ">
     <div class="container">
 
-      <v-row class="justify-center mx-12 mb-15">
+      <v-row class="justify-center px-2 px-sm-4 px-md-8 mb-15">
         <v-col v-for="feature in features" :key="feature.id" cols="12" md="6" sm="12" class="d-flex">
           <v-card class="feature-card d-flex flex-column" hover height="100%" width="100%" :style="{
             '--feature-color': getColorVariable(feature.color),
