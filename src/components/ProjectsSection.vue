@@ -17,7 +17,7 @@ function navigateTo(url: string) {
 
 function getImage(imagePath: string) {
   if (!imagePath) return '' // evita undefined
-  return new URL(`../assets/img/${imagePath}`, import.meta.url).href
+  return new URL(`../assets/img/projects/${imagePath}`, import.meta.url).href
 }
 </script>
 

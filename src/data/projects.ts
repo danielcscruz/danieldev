@@ -20,9 +20,10 @@ export const projectData: Project[] = [
     id: 1,
     title: 'Prosa',
     description:
-      'Microblog com Django REST no backend e Vue.js no frontend, incluindo autenticação, feed e interações',
+      'Aplicação full stack com Vue.js, Django REST e PostgreSQL, com autenticação, feed e interações sociais',
     detail:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce nec augue a libero feugiat gravida. Integer vel sapien in lacus convallis fermentum. Donec sed tortor a lorem.',
+      'Microblog inspirado no Twitter com sistema de autenticação JWT, criação de posts, curtidas, repostagens, seguidores e edição de perfil. Desenvolvido com Django REST Framework no backend, PostgreSQL como banco de dados relacional, armazenamento de mídia com AWS S3 e frontend com Vue 3, TypeScript e Vite. Projeto com arquitetura modular, integração via API RESTful, responsivo e escalável.',
+
     category: 'full-stack',
     tags: ['vue.js', 'django-rest'],
     feat: true,
@@ -30,15 +31,15 @@ export const projectData: Project[] = [
     link: 'https://prosa.codan.tech',
     github: 'https://github.com/danielcscruz/prosa-frontend',
     private: false,
-    image: 'prosa.jpg',
+    image: 'prosa.png',
   },
   {
     id: 2,
     title: 'The Periodic Tetris',
-    description:
-      'Jogo de Tetris com substâncias químicas. Feito em Vue.js com gerenciamento de estado utilizando Pinia',
+    description: 'Jogo educacional em Vue.js com Pinia e TypeScript baseado em reações químicas',
     detail:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce nec augue a libero feugiat gravida. Integer vel sapien in lacus convallis fermentum. Donec sed tortor a lorem.',
+      'Jogo estilo Tetris onde blocos representam elementos químicos e reações são pontuadas com base em combinações químicas reais. Desenvolvido com Vue.js 3, TypeScript, Pinia (gerenciamento de estado), HTML5 e CSS3. Utiliza lógica baseada em bitmask para colisões, animações e manipulação de componentes reativos em tempo real.',
+
     category: 'front-end',
     tags: ['vue.js'],
     feat: true,
@@ -46,15 +47,15 @@ export const projectData: Project[] = [
     link: 'https://periodic-tetris-codan.vercel.app',
     github: 'https://github.com/danielcscruz/the-periodic-game',
     private: false,
-    image: 'periodic.jpg',
+    image: 'periodic.png',
   },
   {
     id: 3,
     title: 'MDR',
     description:
-      'Protótipo Frontend de funcionamento de Refinamento de Macrodados baseado na série Ruptura',
+      'Protótipo em React que simula o processo de refinamento de macrodados, inspirado na série Severance',
     detail:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce nec augue a libero feugiat gravida. Integer vel sapien in lacus convallis fermentum. Donec sed tortor a lorem.',
+      'Projeto experimental que explora interações humanas com dados sensíveis em um ambiente lúdico e surreal. Construído com React, JavaScript moderno (ES6+), gerenciamento de estado local, design orientado à experiência do usuário e princípios de acessibilidade. Layout responsivo com componentes reutilizáveis e lógica de interação baseada em cliques e eventos visuais.',
     category: 'front-end',
     tags: ['react', 'javascript'],
     feat: false,
@@ -62,14 +63,14 @@ export const projectData: Project[] = [
     link: 'https://mdr-macrodata-refinement-dan.vercel.app',
     github: 'https://github.com/danielcscruz/mdr-macrodata-refinement',
     private: false,
-    image: '',
+    image: 'mdr.png',
   },
   {
     id: 4,
     title: 'Bookstore',
-    description: 'API para gestão de ordens de compra para uma livraria',
+    description: 'API REST em Django para controle de pedidos e inventário de uma livraria',
     detail:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce nec augue a libero feugiat gravida. Integer vel sapien in lacus convallis fermentum. Donec sed tortor a lorem.',
+      'Back-end completo com Django e Django REST Framework para gerenciamento de pedidos, clientes, livros e estoques. Banco de dados PostgreSQL, autenticação segura, testes automatizados com Pytest, deploy com Docker e documentação via Swagger/OpenAPI. Projeto com boas práticas de arquitetura e versionamento com Git.',
     category: 'back-end',
     tags: ['api', 'django', 'docker', 'python'],
     feat: true,
@@ -77,14 +78,15 @@ export const projectData: Project[] = [
     link: '',
     github: 'https://github.com/danielcscruz/bookstore',
     private: true,
-    image: '',
+    image: 'bookstore.png',
   },
   {
     id: 5,
     title: 'eFood',
-    description: 'Protótipo Frontend de app para realizar pedidos de restaurante',
+    description:
+      'Frontend em React com TypeScript e Redux para plataforma de pedidos de restaurante',
     detail:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce nec augue a libero feugiat gravida. Integer vel sapien in lacus convallis fermentum. Donec sed tortor a lorem.',
+      'Interface moderna e responsiva para sistema de pedidos, com funcionalidades como listagem de produtos, carrinho de compras, validação de formulário e integração com APIs de pagamento. Desenvolvido com React, TypeScript, Redux, CSS Modules e Vite. Estrutura de componentes reutilizáveis, foco em usabilidade e gerenciamento de estado eficiente.',
     category: 'front-end',
     tags: ['react', 'typescript', 'redux'],
     feat: false,
@@ -92,15 +94,14 @@ export const projectData: Project[] = [
     link: 'https://efood-three-tan.vercel.app',
     github: 'https://github.com/danielcscruz/efood',
     private: false,
-    image: '',
+    image: 'efood.png',
   },
   {
     id: 6,
     title: 'Trafficount',
-    description:
-      'Script utilizando IA para contar carros em vídeo de monitoramento de transito fornecido pelo usuário',
+    description: 'Script em Python com YOLOv5 para contagem de veículos em vídeos de tráfego',
     detail:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Fusce nec augue a libero feugiat gravida. Integer vel sapien in lacus convallis fermentum. Donec sed tortor a lorem.',
+      'Ferramenta automatizada baseada em visão computacional para contagem de carros em vídeos de monitoramento. Utiliza YOLOv5 para detecção de objetos, OpenCV para leitura e manipulação de vídeo, Pandas para análise e exportação de dados e Python puro para automação e lógica de controle. Ideal para análise de tráfego e dados urbanos.',
     category: 'ia',
     tags: ['python', 'yolov5'],
     feat: true,
@@ -108,7 +109,7 @@ export const projectData: Project[] = [
     link: '',
     github: 'https://github.com/danielcscruz/trafficount',
     private: false,
-    image: '',
+    image: 'trafficount.png',
   },
   {
     id: 7,

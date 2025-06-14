@@ -23,7 +23,7 @@ const categoryColors: Record<string, string> = {
         </div>
         <div>
           <v-btn size="small" to="/projects" color="primary" append-icon="mdi-arrow-right-thin" variant="text">
-            Ver todos Projetos
+            Ver mais Projetos
           </v-btn>
         </div>
       </v-row>
