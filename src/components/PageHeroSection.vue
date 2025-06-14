@@ -1,14 +1,22 @@
 <script setup lang="ts">
-defineProps<{ title: string, chip: string, color: string, btn: boolean }>();
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+
+defineProps<{ title: string, chip: string, color: string, btn: boolean }>()
 </script>
 
 <template>
   <div class="wrapper">
     <div class="content">
-      <v-chip class="ma-2 mt-8 mb-8 v-chip-glow-intense" color="success" variant="outlined">
+      <!-- Oculta o chip se a rota atual for "/contact" -->
+      <v-chip v-if="route.path !== '/contact'" class="ma-2 mt-8 mb-8 v-chip-glow-intense" :color="color"
+        variant="outlined">
         {{ chip }}
       </v-chip>
+
       <h3>{{ title }}</h3>
+
       <div class="buttons pt-5">
         <v-btn v-if="btn" size="small" to="/contact" color="primary" append-icon="mdi-arrow-right-thin" variant="tonal"
           class="px-3 mt-4">
@@ -18,7 +26,6 @@ defineProps<{ title: string, chip: string, color: string, btn: boolean }>();
     </div>
   </div>
 </template>
-
 
 <style scoped>
 h3 {
