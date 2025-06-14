@@ -42,7 +42,8 @@
 
                 <!-- Botão de Envio -->
                 <v-col cols="12">
-                  <v-btn color="primary" size="large" :disabled="!formValid" @click="submitForm" block>
+                  <v-btn color="primary" size="large" :disabled="BACKEND_CONFIG_MODE || !formValid" @click="submitForm"
+                    block>
                     <v-icon left>mdi-send</v-icon>
                     Enviar Mensagem
                   </v-btn>
@@ -132,6 +133,7 @@ import { myContact, type Contact } from '@/data/contact'
 import SocialUI from './ui/SocialUI.vue'
 
 const contact = ref<Contact>(myContact)
+const BACKEND_CONFIG_MODE = true
 
 // Interfaces
 interface ContactForm {
