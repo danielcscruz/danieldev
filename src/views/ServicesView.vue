@@ -4,7 +4,7 @@ import ServicesSection from '@/components/ServicesSection.vue';
 </script>
 
 <template>
-  <PageHeroSection title="ServiçoS" chip="tech" color="primary" :btn="true" />
+  <PageHeroSection title="ServiçoS" chip="soluções" color="yellow" :btn="true" />
   <ServicesSection />
 </template>
 
