@@ -18,11 +18,15 @@ interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
   texts: () => [
-    'Django',
-    'Python',
-    'Vue.js',
-    'Flask',
-    'REST API'
+    'python',
+    'django',
+    'vue.js',
+    'postgresql',
+    'docker',
+    'flask',
+    'typescript',
+    'react',
+    'rest api',
   ],
   typingSpeed: 100,
   deletingSpeed: 50,
