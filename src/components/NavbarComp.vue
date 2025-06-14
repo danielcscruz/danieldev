@@ -30,15 +30,17 @@
   </v-app-bar>
 
   <!-- Drawer Mobile -->
-  <v-navigation-drawer v-model="drawer" temporary absolute location="top" scrim class="d-md-none"
+  <v-navigation-drawer v-model="drawer" temporary fixed location="top" scrim class="d-md-none mobile-menu"
     style="top: 80px; z-index: 1004;">
-    <v-list>
-      <v-list-item v-for="(item, index) in menuItems" :key="index" :to="item.to" link @click="drawer = false">
-        <v-list-item-title>{{ item.label }}</v-list-item-title>
+    <v-list class="mobile-menu-list">
+      <v-list-item v-for="(item, index) in menuItems" :key="index" :to="item.to" link @click="drawer = false"
+        class="mobile-menu-item">
+        <v-list-item-title class="mobile-menu-text">{{ item.label }}</v-list-item-title>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
+
 <style scoped>
 /* Use !important para garantir que sobrescreva */
 .v-btn:hover {
@@ -48,7 +50,39 @@
 .border-nav {
   border-bottom: 1px solid rgba(5, 80, 14, 0.255);
 }
+
+/* Classes para customização do menu mobile */
+.mobile-menu {
+  /* Background do drawer */
+  background-color: #0e172b;
+}
+
+.mobile-menu-list {
+  /* Background da lista */
+  background-color: transparent;
+  padding: 0;
+}
+
+.mobile-menu-item {
+  /* Estilo dos itens do menu */
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mobile-menu-item:hover {
+  /* Hover dos itens */
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-menu-text {
+  /* Estilo do texto dos itens */
+  font-family: "GOBOLD LIGHT";
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffffe2;
+}
 </style>
+
 <script lang="ts" setup>
 import { ref } from 'vue';
 import LogoUI from './ui/LogoUI.vue';
