@@ -9,7 +9,7 @@ const techbundle = ref<Tech[]>(techBundle)
 
 <template>
   <div class="features-section wrapper">
-    <div class="container">
+    <v-container fluid>
 
       <v-row class="justify-center mx-12">
         <h2 class="section-title">Tech Stack</h2>
@@ -32,8 +32,8 @@ const techbundle = ref<Tech[]>(techBundle)
         </v-col>
       </v-row>
 
-      <v-row class="justify-center mx-12">
-        <v-col v-for="techb in techbundle" :key="techb.id" cols="12" md="2" sm="12" class="d-flex justify-center">
+      <v-row class=" mx-12">
+        <v-col v-for="techb in techbundle" :key="techb.id" cols="6" md="2" sm="6" class="d-flex justify-center">
           <v-card class="feature-card d-flex flex-column align-center" hover height="80%" width="100%">
             <!-- Ícone do Card -->
             <img :src="`https://cdn.simpleicons.org/${techb.icon}/${techb.color.replace('#', '')}`" :alt="techb.title"
@@ -45,7 +45,7 @@ const techbundle = ref<Tech[]>(techBundle)
           </v-card>
         </v-col>
       </v-row>
-    </div>
+    </v-container>
   </div>
 </template>
 
